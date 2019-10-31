@@ -113,7 +113,6 @@
     //
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
-      // INCOMPLETE
       // create count/total = 0
       var count = 0;
 
@@ -129,8 +128,6 @@
 
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
-      // INCOMPLETE
-
       // loop through columns (column === board[r][i])
       for (var r = 0; r < Object.keys(this.attributes).length - 1; r++ ) {
         if (this.hasColConflictAt(r)) {
@@ -149,11 +146,28 @@
     //
     // test if a specific major diagonal on this board contains a conflict
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
+      // INPUT: [ROW, COLUMN];
+      // var row = majorDiagonalColumnIndexAtFirstRow[0];
+      // var col = majorDiagonalColumnIndexAtFirstRow[1];
+      // var board = this.attributes;
+
+      // create count/total = board[row][col];
+
+      // loop through board
+      //    check if board coordinates has value
+      //      adding value to count
+
+      // count > 1 ? true : false;
       return false; // fixme
     },
 
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function() {
+      // loop through every row
+      //    loop through every col
+      //       if'hasMajorDiagonalConflictAt' ([row,col])
+      //          return true
+
       return false; // fixme
     },
 

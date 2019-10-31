@@ -115,11 +115,16 @@
     hasColConflictAt: function(colIndex) {
       // INCOMPLETE
       // create count/total = 0
+      var count = 0;
+
       // loop through first index of each row/ column (column === board[r][i])
-      //    count += board[r][i]
+      for (var r = 0; r < Object.keys(this.attributes).length - 1; r++) {
+        //    count += board[r][i]
+        count += this.attributes[r][colIndex];
+      }
 
       // count > 1 ? true : false
-      return false; // fixme
+      return count > 1 ? true : false;
     },
 
     // test if any columns on this board contain conflicts
@@ -127,9 +132,14 @@
       // INCOMPLETE
 
       // loop through columns (column === board[r][i])
+      for (var r = 0; r < Object.keys(this.attributes).length - 1; r++ ) {
+        if (this.hasColConflictAt(r)) {
+          return true;
+        }
+      }
       //    pass each colIndex to 'hasColConflictAt'
       //    set returnValue equal to the result
-      return false; // fixme
+      return false;
     },
 
 

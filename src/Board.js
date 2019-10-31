@@ -62,7 +62,7 @@
     },
 
 
-/*
+    /*
          _             _     _
      ___| |_ __ _ _ __| |_  | |__   ___ _ __ ___ _
     / __| __/ _` | '__| __| | '_ \ / _ \ '__/ _ (_)
@@ -79,11 +79,22 @@
     //
     // test if a specific row on this board contains a conflict
     hasRowConflictAt: function(rowIndex) {
+      // create rowSum/count/total = 0;
+
+      // loop through rowIndex (board[r] === [0,1,0])
+      //    rowSum += board[r][i]
+
+      // rowSum > 1 ? true : false
       return false; // fixme
     },
 
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
+
+      // loop through rows (board)
+      // if (this.hasRowConflictAt(rowIndex)) (rowIndex === board[i])
+      //      return true
+
       return false; // fixme
     },
 
@@ -94,11 +105,22 @@
     //
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
+      // INCOMPLETE
+      // create count/total = 0
+      // loop through first index of each row/ column (column === board[r][i])
+      //    count += board[r][i]
+
+      // count > 1 ? true : false
       return false; // fixme
     },
 
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
+      // INCOMPLETE
+
+      // loop through columns (column === board[r][i])
+      //    pass each colIndex to 'hasColConflictAt'
+      //    set returnValue equal to the result
       return false; // fixme
     },
 

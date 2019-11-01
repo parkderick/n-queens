@@ -201,18 +201,31 @@
     // test if a specific minor diagonal on this board contains a conflict
     hasMinorDiagonalConflictAt: function(minorDiagonalColumnIndexAtFirstRow) {
       // INPUT: [ROW, COLUMN];
-      // var row = majorDiagonalColumnIndexAtFirstRow[0];
-      // var col = majorDiagonalColumnIndexAtFirstRow[1];
+      // var row = minorDiagonalColumnIndexAtFirstRow[0];
+      // var col = minorDiagonalColumnIndexAtFirstRow[1];
       // var board = this.attributes;
       // create count/total = board[row][col];
+      var row = minorDiagonalColumnIndexAtFirstRow[0];
+      var col = minorDiagonalColumnIndexAtFirstRow[1];
+      var board = this.attributes;
+      var count = board[row][col];
 
       // loop through board
-      //    check if board coordinates has value    //    row--, col--
-      //        if row/col is negative              //  return 0!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      //    check if board coordinates has value
       //      adding value to count
-      // count > 1 ? true : false;
+      for (var i = 0; i < Object.keys(board).length - 2; i++) {
+        if (col && row !== (board.n - 1)) {
+          var coordinate = board[row + 1][col - 1];
+          if (coordinate) {
+            count += board[row + 1][col - 1];
+          }
+          row++;
+          col--;
+        }
+      }
 
-      return false; // fixme
+      // count > 1 ? true : false;
+      return count > 1 ? true : false;
     },
 
     // test if any minor diagonals on this board contain conflicts
@@ -221,7 +234,15 @@
       //    loop through every col
       //       if'hasMinorDiagonalConflicts' ([row,col])
       //          return true
-      return false; // fixme
+      var board = this.attributes;
+      for (var r = 0; r < Object.keys(board).length - 1; r++) {
+        for (var c = Object.keys(board).length - 2; c > 0; c--) {
+          if (this.hasMinorDiagonalConflictAt([r, c])) {
+            return true;
+          }
+        }
+      }
+      return false;
     }
 
     /*--------------------  End of Helper Functions  ---------------------*/
